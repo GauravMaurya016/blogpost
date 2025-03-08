@@ -1,101 +1,199 @@
+"use client";
+import React, { useEffect, useRef } from "react";
+import Typed from "typed.js";
 import Image from "next/image";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const el = useRef(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    const typed = new Typed(el.current, {
+      strings: [
+        "Coding",
+        "Web Development",
+        "Software Engineering",
+        "Data Science",
+        "Machine Learning",
+      ],
+      typeSpeed: 50,
+    });
+
+    return () => {
+      // Destroy Typed instance during cleanup to stop animation
+      typed.destroy();
+    };
+  }, []);
+  // <span ref={el} />
+
+  return (
+    <main>
+      <section className="container px-4 py-10 mx-auto lg:h-128 lg:space-x-8 lg:flex lg:items-center">
+        <div className="w-full text-center lg:text-left lg:w-1/2 lg:-mt-8">
+          <h1 className="text-3xl leading-snug text-gray-800 dark:text-gray-200 md:text-4xl">
+            A <span className="font-semibold">free repository</span> for
+            community <br className="hidden lg:block" /> components using{" "}
+            <span className="font-semibold underline decoration-primary">
+            <span ref={el} />
+
+            </span>
+          </h1>
+          <p className="mt-4 text-lg text-gray-500 dark:text-gray-300">
+            Open source Tailwind UI components and templates to{" "}
+            <br className="hidden lg:block" /> bootstrap your new apps, projects
+            or landing sites!
+          </p>
+          <div className="mt-6 bg-transparent border rounded-lg dark:border-gray-700 lg:w-2/3 focus-within:border-primary focus-within:ring focus-within:ring-primary dark:focus-within:border-primary focus-within:ring-opacity-20"></div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <div className="w-full mt-4 lg:mt-0 lg:w-1/2">
+          <img
+            src="https://www.creative-tim.com/twcomponents/svg/website-designer-bro-purple.svg"
+            alt="tailwind css components"
+            className="w-full h-full max-w-md mx-auto"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </section>
+
+      <section className=" py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8">Pricing Plans</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-slate-400 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+              <h3 className="text-xl font-semibold mb-4 text-black">Tier 1</h3>
+              <p className="text-black mb-4 text-2xl">$10/month</p>
+              <ul className="mt-6 mb-6 space-y-4">
+                <li className="text-black ">
+                  <s>10GB Storage</s>
+                </li>
+                <li className="text-black ">
+                  <s>Basic Support</s>
+                </li>
+                <li className="text-black ">
+                  <s>Single User</s>
+                </li>
+                <li className="text-black ">
+                  Community Access
+                </li>
+                <li className="text-black ">
+                  Weekly Updates
+                </li>
+              </ul>
+              <button className="bg-blue-500 text-white py-2 px-4 rounded transition-colors duration-300 hover:bg-blue-600">
+                Choose Plan
+              </button>
+            </div>
+            <div className="bg-yellow-50 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+              <h3 className="text-xl font-semibold mb-4 text-black">Tier 2</h3>
+              <p className="text-black mb-4 text-2xl">$20/month</p>
+              <ul className="mt-6 mb-6 space-y-4">
+                <li className="text-black ">
+                  50GB Storage
+                </li>
+                <li className="text-black ">
+                  Priority Support
+                </li>
+                <li className="text-black ">
+                  Up to 5 Users
+                </li>
+                <li className="text-black ">
+                  Community Access
+                </li>
+                <li className="text-black ">
+                  Daily Updates
+                </li>
+              </ul>
+              <button className="bg-blue-500 text-white py-2 px-4 rounded transition-colors duration-300 hover:bg-blue-600">
+                Choose Plan
+              </button>
+            </div>
+            <div className="bg-blue-400 text-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+              <h3 className="text-xl font-semibold mb-4 text-black">Tier 3</h3>
+              <p className="text-gray-200 mb-4 text-2xl">$30/month</p>
+              <ul className="mt-6 mb-6 space-y-4">
+                <li className="text-black ">
+                  200GB Storage
+                </li>
+                <li className="text-black ">
+                  24/7 Support
+                </li>
+                <li className="text-black ">
+                  Unlimited Users
+                </li>
+                <li className="text-black ">
+                  Community Access
+                </li>
+                <li className="text-black ">
+                  Real-time Updates
+                </li>
+              </ul>
+              <button className="bg-yellow-50 text-blue-500 py-2 px-4 rounded transition-colors duration-300 hover:bg-gray-200">
+                Choose Plan
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className=" py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold mb-4 animate-fade-in">
+              Join Us Today!
+            </h2>
+            <p className="text-lg text-gray-700 mb-6 animate-fade-in delay-200">
+              Become a part of our community and enjoy exclusive benefits.
+            </p>
+            <button className="bg-blue-500 text-white py-3 px-6 rounded-lg transition-transform transform hover:scale-105 hover:bg-blue-600 animate-fade-in delay-400">
+              Get Started
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className=" py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8 animate-fade-in">
+            Top Blogs
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-yellow-50 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+              <h3 className="text-xl font-semibold mb-4 text-black">
+                Blog Title 1
+              </h3>
+              <p className="text-black mb-4">
+                A brief description of the blog post goes here. It should be
+                engaging and informative.
+              </p>
+              <button className="bg-blue-500 text-white py-2 px-4 rounded transition-colors duration-300 hover:bg-blue-600">
+                Read More
+              </button>
+            </div>
+            <div className="bg-yellow-50 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in delay-200">
+              <h3 className="text-xl font-semibold mb-4 text-black">
+                Blog Title 2
+              </h3>
+              <p className="text-black mb-4">
+                A brief description of the blog post goes here. It should be
+                engaging and informative.
+              </p>
+              <button className="bg-blue-500 text-white py-2 px-4 rounded transition-colors duration-300 hover:bg-blue-600">
+                Read More
+              </button>
+            </div>
+            <div className="bg-yellow-50 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in delay-400">
+              <h3 className="text-xl font-semibold mb-4 text-black">
+                Blog Title 3
+              </h3>
+              <p className="text-black mb-4">
+                A brief description of the blog post goes here. It should be
+                engaging and informative.
+              </p>
+              <button className="bg-blue-500 text-white py-2 px-4 rounded transition-colors duration-300 hover:bg-blue-600">
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
